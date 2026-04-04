@@ -23,3 +23,8 @@ def test_compare_reports_missing():
 def test_compare_reports_extra():
     _, extra, _ = envdiff.compare({"A": ""}, {"A": "1", "Z": "9"})
     assert extra == ["Z"]
+
+
+def test_compare_reports_empty_values():
+    _, _, empty = envdiff.compare({"A": ""}, {"A": ""})
+    assert empty == ["A"]
