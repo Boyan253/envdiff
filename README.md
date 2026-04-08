@@ -16,3 +16,17 @@ python envdiff.py .env.production.example .env.production --allow-empty
 ```
 
 Exit code is 1 if anything is wrong, so it drops straight into a pipeline.
+
+## Output
+
+```
+missing  REDIS_URL
+empty    STRIPE_SECRET
+extra    OLD_FEATURE_FLAG
+```
+
+| line | meaning |
+|------|---------|
+| `missing` | in the template, absent from the real file — always an error |
+| `empty`   | present but blank — error unless `--allow-empty` |
+| `extra`   | only in the real file — error unless `--allow-extra` |
