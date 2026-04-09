@@ -30,3 +30,10 @@ extra    OLD_FEATURE_FLAG
 | `missing` | in the template, absent from the real file — always an error |
 | `empty`   | present but blank — error unless `--allow-empty` |
 | `extra`   | only in the real file — error unless `--allow-extra` |
+
+## Parsing rules
+
+- `#` comments and blank lines are ignored.
+- `export FOO=bar` is accepted.
+- Surrounding single or double quotes are stripped.
+- Only the first `=` splits, so connection strings survive intact.
