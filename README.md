@@ -37,3 +37,10 @@ extra    OLD_FEATURE_FLAG
 - `export FOO=bar` is accepted.
 - Surrounding single or double quotes are stripped.
 - Only the first `=` splits, so connection strings survive intact.
+
+## In CI
+
+```yaml
+- name: Check env template
+  run: python envdiff.py .env.example .env --allow-extra
+```
