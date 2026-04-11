@@ -44,3 +44,10 @@ extra    OLD_FEATURE_FLAG
 - name: Check env template
   run: python envdiff.py .env.example .env --allow-extra
 ```
+
+## Tests
+
+```
+pip install pytest
+pytest
+```
