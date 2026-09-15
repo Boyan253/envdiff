@@ -4,6 +4,8 @@
 import argparse
 import sys
 
+__version__ = "0.1.0"
+
 
 def parse_env(text):
     """Parse dotenv text into an ordered dict, ignoring comments and blanks."""
@@ -40,6 +42,8 @@ def read(path):
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__)
+    ap.add_argument("--version", action="version",
+                    version="%(prog)s " + __version__)
     ap.add_argument("reference", help="the template, e.g. .env.example")
     ap.add_argument("actual", help="the real file, e.g. .env")
     ap.add_argument("--allow-extra", action="store_true",
